@@ -31,7 +31,8 @@
     "protractor": "5.4.1",
     "chance": "1.0.16",
     "jasmine-spec-reporter": "2.7.0",
-    "protractor-flake": "3.3.0"
+    "protractor-flake": "3.3.0",
+    "randomstring": "1.1.5"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",

@@ -13,12 +13,12 @@ exports.config = {
     directConnect: true,
 
     specs: ['specs/mailTest.js'],
-    baseUrl: 'http://qualityshepherd.com',
+    baseUrl: 'http://mail.ru',
     framework: 'jasmine',
 
     onPrepare: () => {
         // set browser size...
-        browser.manage().window().setSize(1024, 800);
+        browser.manage().window().setSize(1280, 1024);
 
         // better jasmine 2 reports...
         const SpecReporter = require('jasmine-spec-reporter');
