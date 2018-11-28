@@ -10,21 +10,21 @@ class InboxPage extends BasePage {
         this.userEmailContainer = element(by.css('#PH_user-email'));
         this.logoutLinkContainer = $('#PH_logoutLink');
         this.leftBlockCobtainer = element(by.id('b-nav_folders'));
-        this.userPhoto = element(by.css('//*[@class="compose-head__avatar"]/img'));
-        this.createLetterButton = element(by.cssContainingText('span', 'Написать письмо'));
+        this.userPhoto = element(by.xpath('//*[@class="compose-head__avatar"]/img'));
+        this.createLetterButton = element(by.xpath('//*[@id="b-toolbar__left"]/div/div/div[2]/div/a'));
+        // this.createLetterButton = element(by.cssContainingText('span', 'Написать письмо'));
         this.sendLetterButton = element(by.cssContainingText('span', 'Отправить'));
         this.cancelButton = element(by.cssContainingText('span', 'Отмена'));
-        this.stylesLink = element(by.cssContainingText('span', 'Стили'));
-        this.userEmailValue = 'liudmila.ustimenko.qa@mail.ru'
+        this.stylesLink = element(by.cssContainingText('span', 'Стили'));  
         this.logoutLinkName = 'выход';
         this.errorMessageContainer = $('//*[@class="login-header"]/p');
         this.captchaContainer = $('//*[@class="captcha"]');
         this.captchaErrorMessage = 'Замечены подозрительные попытки входа в ваш почтовый ящик.';
-        // this.addressBookBtton = element(by.css('//*[@class="compose-head__row-wrapper compose-head__row-wrapper_to js-row"]/div/div/div/label/span'));
-        this.emailToSendContainer = element(by.css('//*[@class="compose-head__row-wrapper compose-head__row-wrapper_to js-row"]/div/div/div/div/div/div/textarea[2]'));
-        this.subjectLetterContainer = element(by.css('//*[@name="Subject"]'));
-        this.textContainer = element(by.css('//*[@id="tinymce"]'));
-        this.successMessageContainer = element(by.css('//*[@class="message-sent__title"]'));
+        this.addressBookBtton = element(by.xpath('//*[@class="compose-head__row-wrapper compose-head__row-wrapper_to js-row"]/div/div/div/label/span'));
+        this.emailToSendContainer = element(by.xpath('//*[@class="compose-head__row-wrapper compose-head__row-wrapper_to js-row"]/div/div/div/div/div/div/textarea[2]'));
+        this.subjectLetterContainer = element(by.xpath('//*[@name="Subject"]'));
+        this.textContainer = element(by.xpath('//*[@id="tinymce"]'));
+        this.successMessageContainer = element(by.xpath('//*[@class="message-sent__title"]'));
     };  
 
     async logoutContainerIsVisible() {

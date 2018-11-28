@@ -11,16 +11,7 @@ class MailPage extends BasePage {
         this.userNameInput = element(by.id("mailbox:login"));
         this.userDomainDropdown = element(by.id("mailbox:domain"));
         this.userPasswordInput = element(by.id("mailbox:password"));
-        this.loginButton = element(by.id("mailbox:submit"));
-        this.userNameValue = "liudmila.ustimenko.qa@mail.ru";
-        this.userDomainValue = "@mail.ru";
-        this.userPasswordValue = "luda1985masha1987";
-        this.errorMessageContainer = element(by.id('mailbox:error'));
-        this.emptyFieldsErrorMessage = "Введите имя ящика и пароль";
-        this.emptyNameErrorMessage = "Введите имя ящика";
-        this.emptyPassErrorMessage = "Введите пароль";
-        this.invalidDataErrorMessage = 'Неверное имя или пароль';
-
+        this.errorMessageContainer = element(by.id('mailbox:error'));            
     }
 
     async enterUserName(name) {
@@ -38,6 +29,11 @@ class MailPage extends BasePage {
         return this.userDomainDropdown.click();
     }
 
+    async loginButtonIsVisible() {
+        await browser.wait(this.isVisible(this.loginButton), this.timeout.xxl, "Login button is not visible");
+        return this.loginButton.isVisible();
+    }
+
     async clickOnLoginButton() {
         await browser.wait(this.isClickable(this.loginButton), this.timeout.xxl, "Login button is not clickable");
         return this.loginButton.click();
@@ -45,7 +41,7 @@ class MailPage extends BasePage {
 
     async errorContainerIsVisible() {
         await browser.wait(this.isVisible(this.errorMessageContainer), this.timeout.xxl, "Error container is not visible");
-        return this.errorMessageContainer.getText();
+        return this.errorMessageContainer.isVisible();
     }
 
 }

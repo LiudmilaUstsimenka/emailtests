@@ -2,6 +2,7 @@ import mailPage from '../pages/mailPage';
 import { Driver, getRandomString } from 'selenium-webdriver/safari';
 import { async } from 'q';
 import inboxPage from '../pages/inboxPage';
+import userData from '../data/messagesData';
 
 describe('check user can login', () => {
     beforeEach(() => {
@@ -9,12 +10,10 @@ describe('check user can login', () => {
     });
     it('should display message when login with invalid name and pass', async () => {
         const randomstring = require("randomstring");
-        let a = randomstring.generate(15);
-        console.log(a);
-        let b = randomstring.generate(12);
-        console.log(b);
-        mailPage.enterUserName(a);
-        mailPage.enterUserPassword(b);
+        let email = randomstring.generate(15);
+        let password = randomstring.generate(12);
+        mailPage.enterUserName(email);
+        mailPage.enterUserPassword(password);
         mailPage.clickOnLoginButton();
         mailPage.errorContainerIsVisible();
         expect(await mailPage.errorMessageContainer.isDisplayed()).toBe(true);
@@ -26,7 +25,7 @@ describe('check user can login', () => {
         mailPage.clickOnLoginButton();
         mailPage.errorContainerIsVisible();
         expect(await mailPage.errorMessageContainer.isDisplayed()).toBe(true);
-        expect(await mailPage.errorMessageContainer.getText()).toContain(mailPage.emptyFieldsErrorMessage);  
+        expect(await mailPage.errorMessageContainer.getText()).toContain(userData.errorMessageEmptyLoginForm);  
     });
     it('should display message when login with empty name', async() => {
         mailPage.enterUserName('');
@@ -43,13 +42,5 @@ describe('check user can login', () => {
         mailPage.errorContainerIsVisible();
         expect(await mailPage.errorMessageContainer.isDisplayed()).toBe(true);
         expect(await mailPage.errorMessageContainer.getText()).toContain(mailPage.emptyPassErrorMessage);         
-    });
-    it('should display messages when login with valid data', async() => {
-        mailPage.enterUserName(mailPage.userNameValue);
-        mailPage.enterUserPassword(mailPage.userPasswordValue);
-        mailPage.clickOnLoginButton();
-        inboxPage.logoutContainerIsVisible();
-        expect(await inboxPage.logoutLinkContainer.isDisplayed()).toBe(true);
-        expect(await inboxPage.logoutLinkContainer.getText()).toContain(inboxPage.logoutLinkName);
-    });
+    });    
 })

@@ -19,21 +19,21 @@ describe('check user can send email', () => {
         inboxPage.userPhotoIsVisible();
         expect(await inboxPage.userPhoto.isDisplayed()).toBe(true);        
     });
-    // it('should fill fields', async() => {
-    //     inboxPage.userPhoto.click();
-    //     inboxPage.userPhotoIsVisible();
-    //     inboxPage.userPhotoIsClickable();
+    it('should fill fields', async() => {
+        inboxPage.userPhoto.click();
+        inboxPage.userPhotoIsVisible();
+        inboxPage.userPhotoIsClickable();
         // inboxPage.emailToSendContainerisVisible();
-        // inboxPage.enterEmail(mailPage.userNameValue);
+        inboxPage.enterEmail(mailPage.userNameValue);
         // inboxPage.subjectLetterContainerisVisible();
-        // inboxPage.enterSubject('test');
+        inboxPage.enterSubject('test');
         // inboxPage.textContainetIsVisible();
-        // inboxPage.enterText('text');
+        inboxPage.enterText('text');
         // inboxPage.sendLetterButtonIsVisible();
-        // inboxPage.sendLetterButtonIsClickable();
-        // inboxPage.clickOnSendLetterButton();
+        inboxPage.sendLetterButtonIsClickable();
+        inboxPage.clickOnSendLetterButton();
         // inboxPage.subjectLetterContainerisVisible();
-        // expect(await inboxPage.subjectLetterContainer.isDisplayed()).toBe(true);
-        // expect(await inboxPage.subjectLetterContainer.getText()).toContain('отправлено');
-    // });
+        expect(await inboxPage.subjectLetterContainer.isDisplayed()).toBe(true);
+        expect(await inboxPage.subjectLetterContainer.getText()).toContain('отправлено');
+    });
 })
